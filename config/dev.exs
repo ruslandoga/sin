@@ -25,8 +25,8 @@ config :sin, SinWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "oODeQqYybGkEIWSWnRGHImTxBzXoDhe/oLUAiRwgfK7zdjvwc/wN8B8msBAECjg0",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    npm: ["run", "watch:js", cd: Path.expand("../assets", __DIR__)],
+    npm: ["run", "watch:css", cd: Path.expand("../assets", __DIR__)]
   ]
 
 # ## SSL Support
