@@ -23,15 +23,15 @@ RUN mix deps.get --only $MIX_ENV
 COPY config/config.exs config/${MIX_ENV}.exs config/
 RUN mix deps.compile
 
-# build assets
-COPY assets assets
-RUN mix assets.deploy
-
 # build project
 COPY priv priv
 COPY lib lib
 RUN mix compile
 COPY config/runtime.exs config/
+
+# build assets
+COPY assets assets
+RUN mix assets.deploy
 
 # build release
 RUN mix release
