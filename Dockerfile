@@ -37,7 +37,7 @@ COPY config/runtime.exs config/
 RUN mix release
 
 # prepare release image
-FROM alpine:3.18.2 AS app
+FROM alpine:3.18.3 AS app
 RUN apk add --no-cache --update openssl libstdc++ ncurses
 
 WORKDIR /app
